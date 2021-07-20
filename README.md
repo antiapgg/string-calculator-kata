@@ -5,7 +5,7 @@ Proyect structure based on [microsoft/TypeScript-Node-Starter](https://github.co
 
 ## Commands
 
-All the different build steps are orchestrated via [npm scripts](https://docs.npmjs.com/misc/scripts).
+All the different build steps are orchestrated via [npm scripts](https://docs.npmjs.np/misc/scripts).
 
 | Npm Script   | Description                                                         |
 | ------------ | ------------------------------------------------------------------- |
