@@ -3,7 +3,6 @@ export class StringCalculator{
     private static readonly zero: number = 0;
     private static readonly comma: string = ',';
     private static readonly newLine: string = '\n';
-    //private static readonly delimiters: string[] = ['\n'];
 
     public add(numbers: string): number{
         if(this.areInputNumbersEmpty(numbers)){
@@ -11,7 +10,6 @@ export class StringCalculator{
         }
         if(numbers.includes(StringCalculator.newLine)){
             return this.findDelimiters(numbers);
-            //return this.addSplittedNumbers((numbers.replace(new RegExp(StringCalculator.newLine, 'g'), StringCalculator.comma)).split(StringCalculator.comma));
         }
         if(numbers.includes(StringCalculator.comma)){
             return this.addSplittedNumbers(numbers.split(StringCalculator.comma));
@@ -25,6 +23,8 @@ export class StringCalculator{
     }
 
     private addSplittedNumbers(splittedNumber: string[]): number {
+        this.checkNegatives(splittedNumber);
+       
         return splittedNumber
             .map((splittedNumber) => parseInt(splittedNumber))
             .reduce((splittedNumber1, splittedNumber2) => splittedNumber1 + splittedNumber2);
@@ -53,8 +53,19 @@ export class StringCalculator{
         for(let delimiter of delimiters){
             numbers = numbers.replace(new RegExp(delimiter, 'g'), StringCalculator.comma);
         }
-
+        
         return this.addSplittedNumbers(numbers.split(StringCalculator.comma));
     }
-   
+
+    private checkNegatives(splittedNumber: string[]): number[] {
+        var negatives = splittedNumber
+            .map((splittedNumber) => parseInt(splittedNumber))
+            .filter(function(number) { 
+                return number < 0;
+            })
+        if(negatives.length !== 0) {
+            throw Error("negatives not allowed");
+        }
+        return negatives;
+    }   
 }

@@ -40,10 +40,24 @@ describe('String Calculator', (): void => {
     it('should return the value of the sum when the string contains an input separated by a defined separator', (): void => {
         expect(sut.add('//;\n1;2')).toBe(3);
         expect(sut.add('//;\n1;2,3\n4')).toBe(10);
-    });
+    }); 
 
     it('should throw the error "negatives not allowed" when a numbers are negative, and should return the number', (): void => {
-        expect(sut.add('-4')).toThrowError('negatives not allowed');
-    })
+        try{
+            expect(sut.add('-4'));
+        }
+        catch(e){
+            expect(e.message).toBe('negatives not allowed');
+        }
+
+        try{
+            expect(sut.add('5,-4'));
+        }
+        catch(e){
+            expect(e.message).toBe('negatives not allowed');
+        }
+    });
 
 })
+
+
