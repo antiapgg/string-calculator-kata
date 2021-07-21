@@ -64,7 +64,7 @@ export class StringCalculator{
                 return number < 0;
             })
         if(negatives.length !== 0) {
-            throw Error("negatives not allowed");
+            throw Error("negatives not allowed: " + negatives);
         }
         return negatives;
     }   

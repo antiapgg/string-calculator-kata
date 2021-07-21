@@ -47,14 +47,21 @@ describe('String Calculator', (): void => {
             expect(sut.add('-4'));
         }
         catch(e){
-            expect(e.message).toBe('negatives not allowed');
+            expect(e.message).toBe('negatives not allowed: -4');
         }
 
         try{
             expect(sut.add('5,-4'));
         }
         catch(e){
-            expect(e.message).toBe('negatives not allowed');
+            expect(e.message).toBe('negatives not allowed: -4');
+        }
+
+        try{
+            expect(sut.add('5,-4,3\n-2'));
+        }
+        catch(e){
+            expect(e.message).toBe('negatives not allowed: -4,-2');
         }
     });
 
