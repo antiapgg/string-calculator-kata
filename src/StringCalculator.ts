@@ -26,6 +26,7 @@ export class StringCalculator{
         this.checkNegatives(splittedNumber);
        
         return splittedNumber
+            .filter((splittedNumber) => parseInt(splittedNumber) < 1000)
             .map((splittedNumber) => parseInt(splittedNumber))
             .reduce((splittedNumber1, splittedNumber2) => splittedNumber1 + splittedNumber2);
     }

@@ -65,6 +65,10 @@ describe('String Calculator', (): void => {
         }
     });
 
+    it('should ignore numbers bigger than 1000', (): void  => {
+        expect(sut.add('2,1001')).toBe(2);
+    });
+
 })
 
 
