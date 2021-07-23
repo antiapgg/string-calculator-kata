@@ -24,7 +24,6 @@ export class StringCalculator{
 
     private addSplittedNumbers(splittedNumber: string[]): number {
         this.checkNegatives(splittedNumber);
-        //console.log('\tSPLITTTTTT: ', splittedNumber);
         return splittedNumber
             .filter((splittedNumber) => parseInt(splittedNumber) < 1000)
             .map((splittedNumber) => parseInt(splittedNumber))
@@ -47,25 +46,19 @@ export class StringCalculator{
                     }
                 }
                 if (numbers[i] === ']') {
-                    delimiter += '';
                     delimiters.push(delimiter);
                     delimiter = '';
                 }
             }
-            if(delimiters.length > 0 && delimiters.includes(delimiter) === false){
-                if(delimiter !== '')
-                    delimiters.push(delimiter);
+            if(delimiters.length > 0 && delimiters.includes(delimiter) === false && delimiter !== ''){
+                delimiters.push(delimiter);
             }
             numbers = numbers.slice(numbers.indexOf(StringCalculator.newLine) + 1);
-            //console.log('NEW NUMBERS: ', numbers);
         }
-        //console.log('DELIMITERSSS: ',delimiters);
         for(let i = 0; i < delimiters.length; i++){
-            //console.log('DELIM: ', delimiters[i]);
             let exp = new RegExp(delimiters[i], 'g');
-            //console.log('EXP: ', exp);
+
             numbers = numbers.replace(exp, StringCalculator.comma);
-            //console.log('NUMBERS 2: ', numbers);
         }
         
         return this.addSplittedNumbers(numbers.split(StringCalculator.comma));
