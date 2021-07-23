@@ -79,6 +79,10 @@ describe('String Calculator', (): void => {
         expect(sut.add('//[*][%]\n1*2%3')).toBe(6);
     })
 
+    it('should return the value of the sum when the string contains an input separated by multiple defined separators of any length', (): void => {
+        expect(sut.add('//[**][%%%]\n1**2%%%3')).toBe(6);
+    })
+
 })
 
 
