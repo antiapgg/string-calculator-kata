@@ -65,9 +65,17 @@ describe('String Calculator', (): void => {
         }
     });
 
-    it('should ignore numbers bigger than 1000', (): void  => {
+    it('should return the value of the sum ignoring numbers bigger than 1000', (): void  => {
         expect(sut.add('2,1001')).toBe(2);
+        expect(sut.add('12,100,1004,4,13')).toBe(129);
     });
+
+    it('should return the value of the sum when the string contains an input separated by a defined separator of any length', (): void => {
+        expect(sut.add('//[nn]\n1nn2nn3')).toBe(6);
+        expect(sut.add('//[***]\n1***2***3')).toBe(6);
+    });
+
+    
 
 })
 
