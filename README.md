@@ -16,12 +16,12 @@ All the different build steps are orchestrated via [npm scripts](https://docs.np
 | `build-ts`   | Compiles all source `.ts` files to `.js` files in the `dist` folder |
 
 
-## STRING CALCULATOR KATA
+# STRING CALCULATOR KATA
 
-# Incremental kata
+## Incremental kata
 It’s an incremental kata to simulate a real business situation: start of by reading the section 1 and completing it, then go onto section 2, and when you have finished that, look at section 3, etc.
 
-# Step 1
+## Step 1
 Create a simple String calculator with a method signature:
 
     int Add(string numbers)
@@ -31,7 +31,7 @@ For example “” or “1” or “1,2” as inputs.
 
 For an empty string it will return 0.
 
-# Step 2
+### Step 2
 Allow the Add method to handle an unknown amount of numbers.
 
 # Step 3
